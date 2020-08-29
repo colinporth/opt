@@ -1,4 +1,5 @@
-SDKSTAGE = ../..
+SDK_INCLUDES = ../..
+SDK_LIBS = 
 
 CFLAGS += -DSTANDALONE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -DTARGET_POSIX -D_LINUX \
 	  -fPIC -DPIC -D_REENTRANT \
@@ -10,19 +11,19 @@ CFLAGS += -DSTANDALONE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -DTARGET_P
 	  -DUSE_EXTERNAL_OMX -DHAVE_LIBBCM_HOST \
 	  -DUSE_EXTERNAL_LIBBCM_HOST -DUSE_VCHIQ_ARM
 
-INCLUDES += -I $(SDKSTAGE)/opt/vc/include/ \
-	    -I $(SDKSTAGE)/opt/vc/include/interface/vcos/pthreads \
-	    -I $(SDKSTAGE)/opt/vc/include/interface/vmcs_host/linux \
+INCLUDES += -I $(SDK_INCLUDES)/opt/vc/include/ \
+	    -I $(SDK_INCLUDES)/opt/vc/include/interface/vcos/pthreads \
+	    -I $(SDK_INCLUDES)/opt/vc/include/interface/vmcs_host/linux \
 	    -I./ \
-	    -I $(SDKSTAGE)/opt/vc/src/hello_pi/libs/ilclient \
-	    -I $(SDKSTAGE)/opt/vc/src/hello_pi/libs/vgfont \
-	    -I $(SDKSTAGE)/opt/vc/src/hello_pi/libs/revision
+	    -I $(SDK_INCLUDES)/opt/vc/src/hello_pi/libs/ilclient \
+	    -I $(SDK_INCLUDES)/opt/vc/src/hello_pi/libs/vgfont \
+	    -I $(SDK_INCLUDES)/opt/vc/src/hello_pi/libs/revision
 
 LDFLAGS += -l pthread -l rt -l m \
-	   -L $(SDKSTAGE)/opt/vc/lib/ \
-	   -L $(SDKSTAGE)/opt/vc/src/hello_pi/libs/ilclient \
-	   -L $(SDKSTAGE)/opt/vc/src/hello_pi/libs/vgfont \
-	   -L $(SDKSTAGE)/opt/vc/src/hello_pi/libs/revision \
+	   -L $(SDK_LIBS)/opt/vc/lib/ \
+	   -L $(SDK_LIBS)/opt/vc/src/hello_pi/libs/ilclient \
+	   -L $(SDK_LIBS)/opt/vc/src/hello_pi/libs/vgfont \
+	   -L $(SDK_LIBS)/opt/vc/src/hello_pi/libs/revision \
 	   -l brcmGLESv2 -l brcmEGL -l openmaxil -l bcm_host -l vcos -lvchiq_arm
 
 all: $(BIN) $(LIB)
