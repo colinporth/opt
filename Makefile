@@ -9,13 +9,13 @@ libs/vgfont/libvgfont.a:
 libs/revision/librevision.a:
 	$(MAKE) -C libs/revision
 
-apps: libs/ilclient/libilclient.a libs/vgfont/libvgfont.a libs/revision/librevision.a
+# libs/vgfont/libvgfont.a
+apps: libs/ilclient/libilclient.a libs/revision/librevision.a 
 	$(MAKE) -C hello_world
 	$(MAKE) -C hello_triangle
 	$(MAKE) -C hello_triangle2
 	$(MAKE) -C hello_video
 	$(MAKE) -C hello_audio
-	$(MAKE) -C hello_font
 	$(MAKE) -C hello_dispmanx
 	$(MAKE) -C hello_tiger
 	$(MAKE) -C hello_encode
@@ -24,6 +24,7 @@ apps: libs/ilclient/libilclient.a libs/vgfont/libvgfont.a libs/revision/librevis
 	$(MAKE) -C hello_teapot
 	$(MAKE) -C hello_fft
 	$(MAKE) -C hello_mmal_encode
+	$(MAKE) -C hello_font
 
 clean:
 	$(MAKE) -C libs/ilclient clean
@@ -34,7 +35,6 @@ clean:
 	$(MAKE) -C hello_triangle2 clean
 	$(MAKE) -C hello_video clean
 	$(MAKE) -C hello_audio clean
-	$(MAKE) -C hello_font clean
 	$(MAKE) -C hello_dispmanx clean
 	$(MAKE) -C hello_tiger clean
 	$(MAKE) -C hello_encode clean
@@ -43,4 +43,5 @@ clean:
 	$(MAKE) -C hello_teapot clean
 	$(MAKE) -C hello_fft clean
 	$(MAKE) -C hello_mmal_encode clean
+	$(MAKE) -C hello_font clean
 
